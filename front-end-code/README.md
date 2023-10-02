@@ -1,4 +1,6 @@
 # React + Vite
+#When you clone this go into the front-end-code folder and do "npm install" and "npm run dev" to get it up and running.
+#It will create a local server where you can view the code in browser.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
