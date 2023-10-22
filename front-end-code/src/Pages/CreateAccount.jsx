@@ -1,6 +1,7 @@
+import React from "react";
 import { useState } from 'react';
 
-function AcountCreation() {
+function CreateAccount() {
     const [userAcount, setUserAcount] = useState({
         userName: "",
         passWord: "",
@@ -23,9 +24,9 @@ function AcountCreation() {
     }
 
     return (
-        <div className="h-screen flex items-center justify-center bg-slate-950">
+        <div className="h-screen flex items-center justify-center">
             <div className="w-full max-w-xs">
-                <form onSubmit={handleSubmit} className="bg-slate-800 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <form onSubmit={handleSubmit} className="bg-slate-800 shadow-xl shadow-slate-700 rounded px-8 pt-6 pb-8 mb-4">
                     <div className="mb-4">
                         <h1 className="text-white text-xl font-bold pb-4">Create Your Account</h1>
                         <label className="block text-white text-sm font-semibold mb-2" htmlFor="username">
@@ -74,4 +75,4 @@ function AcountCreation() {
     )
 }
 
-export default AcountCreation;
+export default CreateAccount;
