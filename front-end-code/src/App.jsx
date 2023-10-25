@@ -9,7 +9,9 @@ import TopAllTime from './Pages/TopAllTime';
 import TopToday from './Pages/TopToday';
 import TopCreators from './Pages/TopCreators';
 import UserLogin from './Pages/UserLogin';
-
+import Following from './Pages/Following';
+import Followers from './Pages/Followers';
+import LOLs from './Pages/LOLs';
 
 function App() {
 
@@ -28,6 +30,9 @@ function App() {
           <Route path ="/TopToday" element={<TopToday />} />
           <Route path ="/TopCreators" element={<TopCreators />} />
           <Route path ="/UserLogin" element={<UserLogin />} />
+          <Route path ="/Following" element={<Following />} />
+          <Route path ="/Followers" element={<Followers />} />
+          <Route path ="/LOLs" element={<LOLs />} />
         </Routes>
       </BrowserRouter>
     </div>
