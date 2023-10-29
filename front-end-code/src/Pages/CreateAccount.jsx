@@ -1,26 +1,24 @@
 import React from "react";
+import axios from 'axios';
 import { useState } from 'react';
+import {useUserAccount} from '../Components/UserAccount'
 
 function CreateAccount() {
-    const [userAcount, setUserAcount] = useState({
-        userName: "",
-        passWord: "",
-        handle: "",
-        bio: "",
-        webSite: "",
-        profilePic: "",
-    })
+    const {userAcount, handleChange} = useUserAccount();
 
-    const handleChange = e => {
-        setUserAcount({
-            ...userAcount,
-            [e.target.name]: e.target.value,
-        });
-    }
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
+        try{
+            const response = await axios.post('http://localhost:8080/user/', userAcount );
 
-        console.log(userAcount);
+            if(response.status === 200) {
+                console.log('User created', response.data);
+            }else{
+                console.log("Error creating user")
+            }
+        }catch(error){
+            console.error(error)
+        }
     }
 
     return (
