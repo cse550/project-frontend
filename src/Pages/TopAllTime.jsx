@@ -1,8 +1,8 @@
 import React from "react";
-import LeftColumn from '../Components/LeftColumn';
-import RightColumn from '../Components/RightColumn';
+import LeftColumn from '../Components/LeftColumn.jsx';
+import RightColumn from '../Components/RightColumn.jsx';
 
-function LOLs() {
+function TopAllTime() {
 
   return (
     <div className="flex h-screen">
@@ -11,7 +11,7 @@ function LOLs() {
       </div>
       <div className="h-screen w-1/2 border-2"> { /* middle column */ }
         <div className="w-full py-4 border-b-2 text-4xl text-center font-semibold">
-          <h1 className="text-slate-700">LOLs</h1>
+          <h1 className="text-slate-700">Top Posts of All Time</h1>
         </div>
       </div> { /* end of middle column */ }
       <div className="h-screen w-1/4"> { /* third column */ }
@@ -21,4 +21,4 @@ function LOLs() {
   );
 }
 
-export default LOLs;
+export default TopAllTime;

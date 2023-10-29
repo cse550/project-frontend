@@ -1,6 +1,6 @@
 import React from "react";
-import LeftColumn from '../Components/LeftColumn';
-import RightColumn from '../Components/RightColumn';
+import LeftColumn from '../Components/LeftColumn.jsx';
+import RightColumn from '../Components/RightColumn.jsx';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 
