@@ -1,17 +1,17 @@
 import { BrowserRouter, Routes, Route  } from 'react-router-dom';
-import Welcome from './Pages/Welcome.jsx';
-import CreateAccount from './Pages/CreateAccount.jsx';
-import Profile from './Pages/Profile.jsx';
-import PostWindow from './Pages/PostWindow.jsx';
-import Main from './Pages/Main.jsx';
-import Notifications from './Pages/Notifications.jsx';
-import TopAllTime from './Pages/TopAllTime.jsx';
-import TopToday from './Pages/TopToday.jsx';
-import TopCreators from './Pages/TopCreators.jsx';
-import UserLogin from './Pages/UserLogin.jsx';
-import Following from './Pages/Following.jsx';
-import Followers from './Pages/Followers.jsx';
-import LOLs from './Pages/LOLs.jsx';
+import Welcome from './pages/Welcome.jsx';
+import CreateAccount from './pages/CreateAccount.jsx';
+import Profile from './pages/Profile.jsx';
+import PostWindow from './pages/PostWindow.jsx';
+import Main from './pages/Main.jsx';
+import Notifications from './pages/Notifications.jsx';
+import TopAllTime from './pages/TopAllTime.jsx';
+import TopToday from './pages/TopToday.jsx';
+import TopCreators from './pages/TopCreators.jsx';
+import UserLogin from './pages/UserLogin.jsx';
+import Following from './pages/Following.jsx';
+import Followers from './pages/Followers.jsx';
+import LOLs from './pages/LOLs.jsx';
 
 function App() {
 
