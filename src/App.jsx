@@ -12,6 +12,7 @@ import UserLogin from './pages/UserLogin.jsx';
 import Following from './pages/Following.jsx';
 import Followers from './pages/Followers.jsx';
 import LOLs from './pages/LOLs.jsx';
+import OtherUserProfile from './pages/OtherUserProfile';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           <Route path ="/Following" element={<Following />} />
           <Route path ="/Followers" element={<Followers />} />
           <Route path ="/LOLs" element={<LOLs />} />
+          <Route path ="/OtherUserProfile" element={<OtherUserProfile />} />
         </Routes>
       </BrowserRouter>
     </div>
