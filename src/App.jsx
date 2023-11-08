@@ -13,6 +13,7 @@ import Following from './pages/Following.jsx';
 import Followers from './pages/Followers.jsx';
 import LOLs from './pages/LOLs.jsx';
 import OtherUserProfile from './pages/OtherUserProfile';
+import FindCreators from './pages/FindCreators';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
           <Route path ="/Followers" element={<Followers />} />
           <Route path ="/LOLs" element={<LOLs />} />
           <Route path ="/OtherUserProfile" element={<OtherUserProfile />} />
+          <Route path ="/FindCreators" element={<FindCreators />} />
         </Routes>
       </BrowserRouter>
     </div>
