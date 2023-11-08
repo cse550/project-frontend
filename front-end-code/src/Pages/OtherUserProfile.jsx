@@ -4,7 +4,7 @@ import RightColumn from '../Components/RightColumn';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 
-function Profile() {
+function OtherUserProfile() {
 
     const navigate = useNavigate(); // used to navigate between pages
 
@@ -17,10 +17,10 @@ function Profile() {
             <div className="h-1/3 w-full border-2"> { /* top half of middle column - profile specific stuff */ }
                     <div className="h-1/3 w-full flex items-end py-4 justify-between">
                         <span className="text-slate-800 font-bold px-10 text-2xl">
-                            Your name here
+                            Other username here
                         </span>
                         <button className="mt-6 mb-6 mr-6 p-2 font-bold text-xl text-slate-800 w-1/6 rounded-full border-solid border-2 border-black hover:bg-slate-400 focus:outline-none focus:ring focus:ring-slate-300 active:bg-slate-700">
-                            Edit Profile
+                            Follow
                         </button>
                     </div>
                     <div className="h-1/3 w-full flex items-center px-10 text-slate-600 font-semibold">
@@ -69,4 +69,4 @@ function Profile() {
     )
   }
   
-  export default Profile
+  export default OtherUserProfile

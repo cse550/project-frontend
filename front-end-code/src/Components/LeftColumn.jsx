@@ -46,7 +46,7 @@ function LeftColumn() {
         <button onClick={() => {
             navigate("/PostWindow");
         }}
-            className="border-solid border-2 border-blue-600 px-8 py-3 mb-6 text-blue-600 w-1/2 rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 active:bg-blue-800">
+            className="border-solid border-2 border-blue-600 px-8 py-3 mb-6 text-blue-600 w-1/2 rounded-full hover:bg-blue-600 hover:text-white focus:outline-none focus:ring focus:ring-blue-300 active:bg-blue-800">
             Post
         </button>
     </div>
