@@ -7,7 +7,7 @@ function RightColumn() {
 
     return (
 
-    <div className="w-full h-full">
+    <div className="w-full h-full flex flex-col justify-between">
         <div className="py-6 px-2">
             <div className="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl">
                 <div className="md:flex">
@@ -21,22 +21,14 @@ function RightColumn() {
                 </div>
             </div>
         </div>        
-        <div className="w-full h-1/2 py-4 px-8">
-            <div className="h-1/6 border border-solid bg-gray-50 flex items-center">
-                <h1 className="px-6 text-xl font-bold text-slate-800">
-                    Creators you might like
-                </h1>
-            </div>
-            <div className="h-2/3 border border-solid bg-gray-50">
-                { /* Randomly populate with other users/top creators - show username and have a follow button?*/ }
-            </div>
-            <div className="h-1/6 border border-solid bg-gray-50">
+        <div className="w-full px-6 py-8 flex items-center">
+            <div className="w-full bg-gray-50">
                 { /* show more button; when clicked, takes you to page with other users (random generation?) */ }
                 <button onClick={() => {
                     navigate("/FindCreators");
                  }}
-                    className="h-full w-full text-lg bg-gray-50 text-blue-400 hover:bg-slate-200 text-left px-6">
-                    Show more
+                    className="h-full p-4 rounded-xl w-full text-2xl bg-gray-50 text-blue-400 hover:bg-slate-200 text-left px-6">
+                    Creators you might like...
                 </button>
             </div>
         </div>
