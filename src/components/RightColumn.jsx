@@ -22,7 +22,7 @@ function RightColumn() {
             </div>
         </div>        
         <div className="w-full px-6 py-8 flex items-center">
-            <div className="w-full bg-gray-50">
+            <div className="w-full">
                 { /* show more button; when clicked, takes you to page with other users (random generation?) */ }
                 <button onClick={() => {
                     navigate("/FindCreators");

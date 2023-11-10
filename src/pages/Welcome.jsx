@@ -8,13 +8,13 @@ function Welcome() {
     return (
       <div className="h-screen flex">
             <div className="relative h-screen w-1/2 bg-blue-400 text-center">
-              <div className="mt-64">
+              <div className="h-screen flex flex-col justify-center">
                 <h1 className="text-6xl text-white font-sans">Welcome to LOL!</h1>
                 <p className="text-xl text-white font-sans py-4">Sit back, relax, and enjoy some LOLs.</p>
               </div>
             </div>
               <div className="h-screen w-1/2">
-                  <div className="flex flex-col mt-64 space-y-4 ml-64">
+                  <div className="h-screen flex flex-col justify-center items-center space-y-4">
                       <p className="text-xl text-blue-400 font-sans">Laugh today.</p>
                       <button onClick={() => {
                         navigate("/CreateAccount");
