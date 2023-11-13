@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  project-frontend:
+    image: project-frontend:${PROJECT_FRONTEND_TAG:-latest}
+    build:
+      context: ./
+      tags:
+        - "project-frontend:latest"
+    ports:
+      - '3000:3000'
