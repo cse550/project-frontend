@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  npm-cache:
+    image: verdaccio/verdaccio
+    volumes:
+      - npm-cache-volume:/verdaccio/storage
+    network_mode: host
+
+  project-frontend:
+    extends:
+      file: compose.yaml
+      service: project-frontend
+    build:
+      network: host
+      args:
+        NPM_REGISTRY: http://localhost:4873
+
+volumes:
+  npm-cache-volume:
