@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 function CreateAccount() {
     const [userAccount, setUserAccount] = useState({
@@ -8,22 +9,27 @@ function CreateAccount() {
         password: "",
     });
 
+    const navigate = useNavigate(); // Initialize useNavigate
+
     const handleChange = e => {
         setUserAccount({
             ...userAccount,
             [e.target.name]: e.target.value,
         });
     }
+
     const handleSubmit = async e => {
         e.preventDefault();
         try {
             const response = await axios.post('/api/user', userAccount);
 
             if (response.status === 201) {
-                console.log('User created', response.data);
+                console.log('User created');
+                navigate('/profile');
             } else {
                 console.log("Error creating user");
             }
+            localStorage.setItem('token', response.data);
         } catch (error) {
             console.error(error);
         }
