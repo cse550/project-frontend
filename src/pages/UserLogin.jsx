@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 
 
@@ -23,24 +24,16 @@ function UserLogin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('/api/user/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username: userCreds.userName, password: userCreds.password }),
+            const response = await axios.post('/api/user/login', {
+                username: userCreds.userName,
+                password: userCreds.password
             });
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || 'Login failed');
-            }
-
-            const data = await response.json();
-            localStorage.setItem('token', data.token);
+            localStorage.clear()
+            localStorage.setItem('token', response.data.token);
             navigate('/Profile');
         } catch (error) {
-            setLoginError("Invalid Username or Password");
+            const errorMessage = error.response?.data?.body || 'Login failed';
+            setLoginError(errorMessage);
         }
     };
     return (
