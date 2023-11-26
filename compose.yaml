@@ -3,9 +3,18 @@ version: '3'
 services:
   project-frontend:
     image: project-frontend:${PROJECT_FRONTEND_TAG:-latest}
+    networks:
+      lol-app-network:
+        aliases:
+          - frontend
     build:
       context: ./
       tags:
         - "project-frontend:latest"
     ports:
-      - '3000:3000'
+      - '4000:4000'
+
+
+networks:
+  lol-app-network:
+    name: lol-app-network
