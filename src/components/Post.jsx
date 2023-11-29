@@ -20,7 +20,7 @@ function Post({ post }) {
 
     return (
         <div className="relative mx-auto w-full flex h-20 flex-row border border-b justify-between">
-            <h1>{post.username}</h1>
+            <span>{post.username}</span>
 
             <div className="flex flex-grow mx-6 p-2 max-h-[100px] overflow-y-auto" style={{ maxHeight: "100px", overflowY: "auto" }}>
                 <p className="text-lg break-words text-ellipsis">{post.content}</p>
@@ -30,7 +30,7 @@ function Post({ post }) {
             
             {/* try to get the date */}
             <span className="text-xs p-2 text-slate-600">
-                {post.timestamp} {/* NOT WORKING CURRENTLY; just a placeholder | note: toLocaleDateString for just mm/dd/yy i.e. 11/28/23 */}
+                {post.timestamp} {/* Not formatted */}
             </span>
 
             <button className="flex" onClick={handleLike}>
