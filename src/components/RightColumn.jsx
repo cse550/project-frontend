@@ -12,7 +12,7 @@ function RightColumn() {
             <div className="w-full">
                 { /* show more button; when clicked, takes you to page with other users (random generation?) */ }
                 <button onClick={() => {
-                    navigate("/Profile");
+                    navigate("/Welcome");
                  }}
                     className="h-full p-4 rounded-xl w-full text-2xl bg-gray-50 text-blue-400 hover:bg-slate-200 text-left px-6">
                     Sign Out...
