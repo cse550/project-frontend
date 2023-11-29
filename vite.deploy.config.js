@@ -6,10 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true,
-    port: 3000,
+    port: 4000,
     proxy: {
       '/api': {
-        target: 'http://project-backend:8080/', // Proxy requests to the backend server
+        target: 'http://backend:8080', // Proxy requests to the backend server
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''), // Remove the /api prefix
       },
@@ -18,10 +18,10 @@ export default defineConfig({
   },
   preview: {
     host: true,
-    port: 3000,
+    port: 4000,
     proxy: {
       '/api': {
-        target: 'http://project-backend:8080/', // Proxy requests to the backend server
+        target: 'http://backend:8080', // Proxy requests to the backend server
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''), // Remove the /api prefix
       },

@@ -18,3 +18,7 @@ services:
 
 volumes:
   npm-cache-volume:
+
+networks:
+  lol-app-network:
+    name: lol-app-network
