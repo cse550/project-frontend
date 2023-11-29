@@ -33,7 +33,7 @@ function GlobalPosts() {
         <GlobalPost key={post.id} post={post} />
       ))
     ) : (
-      <>
+      <div className="flex flex-col my-auto items-center">
         <h1 className="text-slate-700 text-6xl font-bold">:(</h1>
         <h1 className="mt-12 text-slate-600 text-2xl font-bold">
           You don't have any posts.
@@ -41,7 +41,7 @@ function GlobalPosts() {
         <h1 className="mt-12 text-slate-400 text-2xl">
           Change that now?
         </h1>
-      </>
+      </div>
     )}
   </div>
 );
