@@ -9,7 +9,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost:8080', // Proxy requests to the backend server
+        target: 'http://project-backend:8080/', // Proxy requests to the backend server
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''), // Remove the /api prefix
       },
@@ -21,7 +21,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost:8080', // Proxy requests to the backend server
+        target: 'http://project-backend:8080/', // Proxy requests to the backend server
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''), // Remove the /api prefix
       },

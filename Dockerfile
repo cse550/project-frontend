@@ -15,8 +15,8 @@ RUN npm run build
 FROM build AS install
 EXPOSE 3000
 ENV FRONTEND_INSTALL_PREFIX=/opt/project-frontend
-CMD npx vite -l info -d ./dist
+CMD npx vite preview -c ./vite.deploy.config.js -d
 RUN mkdir -p ${FRONTEND_INSTALL_PREFIX} \
-  && cp -r ./package.json ./node_modules vite.config.js ./dist ${FRONTEND_INSTALL_PREFIX}
+  && cp -r ./package.json ./node_modules vite.deploy.config.js ./dist ${FRONTEND_INSTALL_PREFIX}
 WORKDIR ${FRONTEND_INSTALL_PREFIX}
 RUN rm -rf /src/project-frontend
