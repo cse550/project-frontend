@@ -27,7 +27,7 @@ function Posts() {
 }, []);
 
   return (
-    <div className="flex flex-col h-full"> {/* Ensure the parent container fills available space */}
+    <div className="flex flex-col h-full w-full"> {/* Ensure the parent container fills available space */}
     {posts.length > 0 ? (
       posts.map((post, index) => (
         <Post key={post.id} post={post} />
