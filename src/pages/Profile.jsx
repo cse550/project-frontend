@@ -13,8 +13,31 @@ function Profile() {
 
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
+    const [editing, setEditing] = useState(false);
+    const [userBio, setUserBio] = useState('Write a funny bio!');
     const token = localStorage.getItem('token');
     const decodedToken = jwtDecode(token);
+
+    const toggleEditing = () => {
+        if(editing){
+            saveBio();
+        }
+        setEditing(!editing);
+    };
+
+    const handleBioChange = (event) => {
+        setUserBio(event.target.value);
+    };
+
+    const saveBio = async () => {
+        const updatedBio = {bio: userBio};
+        try{
+            await axios.patch('/api/user/' + decodedToken.id, updatedBio);
+            console.log("Bio updated!")
+        }catch(error){
+            console.log('Error updating bio: ' + error);
+        }
+    };
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -44,15 +67,22 @@ function Profile() {
                         <span className="text-blue-500 underline font-bold px-10 text-3xl">
                             {decodedToken.username}
                         </span>
-                        <button className="mt-6 mb-6 mr-6 p-2 font-bold text-xl text-slate-800 w-1/6 rounded-full border-solid border-2 border-black hover:bg-slate-400 focus:outline-none focus:ring focus:ring-slate-300 active:bg-slate-700">
-                            Edit Profile
-                        </button>
                     </div>
                     <div className="h-1/3 w-full flex items-center px-10 text-slate-600 font-semibold">
-                        <span>
-                            Your bio goes here. Do us a favor? Come up with something funny
-                        </span>
+                         {editing ? (
+                             <input
+                                type="text"
+                                value={userBio}
+                                onChange={handleBioChange}
+                                className="w-full p-2 border border-slate-300 rounded"
+                              />
+                            ) : (
+                                <span>{userBio}</span>
+                            )}
                     </div>
+                    <button onClick={toggleEditing} className="mt-6 mb-6 mr-6 p-2 font-bold text-xl text-slate-800 w-1/6 rounded-full border-solid border-2 border-black hover:bg-slate-400 focus:outline-none focus:ring focus:ring-slate-300 active:bg-slate-700">
+                        {editing ? 'Save' : 'Edit Bio'}
+                    </button>
                     <div className="h-1/3 w-full flex justify-around">
                         <button onClick={() => {
                             navigate("/Followers");
