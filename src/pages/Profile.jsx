@@ -104,7 +104,7 @@ function Profile() {
                         </button>
                     </div>
                 </div>
-                <div className="h-2/3 w-full border-2 flex flex-col justify-center items-center no-scrollbar overflow-y-scroll"> {/* posts section, bottom half of middle columh */ }
+                <div className="h-2/3 w-full border-2 flex flex-col justify-center items-center overflow-y-scroll scrollbar-hide"> {/* posts section, bottom half of middle columh */ }
                         <Posts posts={posts}/>
                 </div>
             </div>

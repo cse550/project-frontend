@@ -17,6 +17,10 @@ function GlobalPost({ post }) {
         }
     };
 
+    { /* formatting timestamp from backend */ }
+    let timestampFromBackend = post.timestamp;
+    let date = new Date(timestampFromBackend);
+    let formattedDate = date.toLocaleString(); { /* toLocaleDateString for mm//dd//yy and toLocateString for THAT and time of day */}
 
     return (
         <div className="relative mx-auto w-full flex h-20 flex-row border border-b justify-between">
@@ -30,7 +34,7 @@ function GlobalPost({ post }) {
             
             {/* try to get the date */}
             <span className="text-xs p-2 text-slate-600">
-                {post.timestamp} {/* NOT WORKING CURRENTLY; just a placeholder | note: toLocaleDateString for just mm/dd/yy i.e. 11/28/23 */}
+                {formattedDate} { /* formatted like - 11/29/2023, 9:23:17 PM */ }
             </span>
 
             <button className="flex" onClick={handleLike}>

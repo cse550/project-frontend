@@ -33,10 +33,10 @@ function Main() {
         <LeftColumn />
       </div>
       <div className="h-screen w-1/2 border-2"> { /* middle column */ }
-        <div className="w-full py-4 border-b-2 text-4xl text-center font-semibold">
+        <div className="bg-blue-400 h-1/6 w-full flex justify-center items-center py-4 border-b-2 text-5xl font-semibold">
           <h1 className="text-slate-700">Main</h1>
         </div>
-        <div className="h-full w-full border-2 flex flex-col justify-center items-center no-scrollbar overflow-y-scroll">
+        <div className="flex flex-col w-full h-5/6 justify-center items-center overflow-y-scroll scrollbar-hide">
           <GlobalPosts posts={posts}/>
         </div>
       </div> { /* end of middle column */ }

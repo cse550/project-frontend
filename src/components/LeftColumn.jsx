@@ -6,7 +6,7 @@ function LeftColumn() {
     const navigate = useNavigate(); // used to navigate between pages
 
   return (
-    <div className="flex flex-col mt-48 items-center">
+    <div className="flex flex-col items-center mt-48">
         <button onClick={() => {
             navigate("/Main");
         }}
