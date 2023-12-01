@@ -14,7 +14,7 @@ function Profile() {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
     const [editing, setEditing] = useState(false);
-    const [userBio, setUserBio] = useState('Write a funny bio!');
+    const [userBio, setUserBio] = useState('');
     const token = localStorage.getItem('token');
     const decodedToken = jwtDecode(token);
 
@@ -40,21 +40,24 @@ function Profile() {
     };
 
     useEffect(() => {
-        const fetchPosts = async () => {
+        const fetchUserAndPosts = async () => {
             if (!decodedToken || !decodedToken.id) {
                 console.error('Invalid token or user ID not found');
                 return;
             }
 
             try {
-                const response = await axios('api/post/feed/' + decodedToken.id);
-                setPosts(response.data);
+                const userResponse = await axios.get('/api/user/' + decodedToken.id);
+                setUserBio(userResponse.data.bio || 'Write a funny bio!');
+
+                const postsResponse = await axios.get('api/post/feed/' + decodedToken.id);
+                setPosts(postsResponse.data);
             } catch (error) {
-                console.error('Error fetching posts:', error);
+                console.error('Error fetching data:', error);
             }
         };
-        fetchPosts();
-    }, []);
+        fetchUserAndPosts();
+    }, [decodedToken]);
 
     return (
         <div className="flex h-screen">
