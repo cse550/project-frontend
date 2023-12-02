@@ -57,7 +57,7 @@ function Profile() {
             }
         };
         fetchUserAndPosts();
-    }, [decodedToken]);
+    }, []);
 
     return (
         <div className="flex h-screen">
