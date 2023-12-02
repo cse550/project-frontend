@@ -27,14 +27,9 @@ function RightColumn() {
             />
         </div>        
         <div className="w-full px-6 py-8 flex">
-            <div className="w-full">
+            <div className="w-full py-4">
                 { /* show more button; when clicked, takes you to page with other users (random generation?) */ }
-                <button onClick={() => {
-                    navigate("/FindCreators");
-                 }}
-                    className="h-full p-4 rounded-xl w-full text-2xl bg-gray-50 text-blue-400 hover:bg-slate-200 text-left px-6">
-                    Creators you might like...
-                </button>
+                
             </div>
         </div>
     </div>
