@@ -14,7 +14,7 @@ function Profile() {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
     const [editing, setEditing] = useState(false);
-    const [userBio, setUserBio] = useState('Write a funny bio!');
+    const [userBio, setUserBio] = useState('');
     const token = localStorage.getItem('token');
     const decodedToken = jwtDecode(token);
 
@@ -40,21 +40,24 @@ function Profile() {
     };
 
     useEffect(() => {
-        const fetchPosts = async () => {
+        const fetchUserAndPosts = async () => {
             if (!decodedToken || !decodedToken.id) {
                 console.error('Invalid token or user ID not found');
                 return;
             }
 
             try {
-                const response = await axios('api/post/feed/' + decodedToken.id);
-                setPosts(response.data);
+                const userResponse = await axios.get('/api/user/' + decodedToken.id);
+                setUserBio(userResponse.data.bio || 'Write a funny bio!');
+
+                const postsResponse = await axios.get('api/post/feed/' + decodedToken.id);
+                setPosts(postsResponse.data);
             } catch (error) {
-                console.error('Error fetching posts:', error);
+                console.error('Error fetching data:', error);
             }
         };
-        fetchPosts();
-    }, []);
+        fetchUserAndPosts();
+    }, [decodedToken]);
 
     return (
         <div className="flex h-screen">
@@ -67,6 +70,9 @@ function Profile() {
                         <span className="text-blue-500 underline font-bold px-10 text-3xl">
                             {decodedToken.username}
                         </span>
+                        <button onClick={toggleEditing} className="mt-6 mb-6 mr-6 p-2 font-bold text-xl text-slate-800 w-1/6 rounded-full border-solid border-2 border-black hover:bg-slate-400 focus:outline-none focus:ring focus:ring-slate-300 active:bg-slate-700">
+                            {editing ? 'Save' : 'Edit Bio'}
+                        </button>
                     </div>
                     <div className="h-1/3 w-full flex items-center px-10 text-slate-600 font-semibold">
                          {editing ? (
@@ -80,9 +86,7 @@ function Profile() {
                                 <span>{userBio}</span>
                             )}
                     </div>
-                    <button onClick={toggleEditing} className="mt-6 mb-6 mr-6 p-2 font-bold text-xl text-slate-800 w-1/6 rounded-full border-solid border-2 border-black hover:bg-slate-400 focus:outline-none focus:ring focus:ring-slate-300 active:bg-slate-700">
-                        {editing ? 'Save' : 'Edit Bio'}
-                    </button>
+                    
                     <div className="h-1/3 w-full flex justify-around">
                         <button onClick={() => {
                             navigate("/Followers");
