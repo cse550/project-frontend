@@ -74,7 +74,7 @@ function Profile() {
                             {editing ? 'Save' : 'Edit Bio'}
                         </button>
                     </div>
-                    <div className="h-1/3 w-full flex items-center px-10 text-slate-600 font-semibold">
+                    <div className="h-1/3 w-full flex items-center px-10 text-slate-600 text-lg font-semibold">
                          {editing ? (
                              <input
                                 type="text"
